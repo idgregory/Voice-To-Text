@@ -28,16 +28,16 @@ namespace Voice_To_Text
             return System.Windows.Forms.MessageBox.Show(msg, caption, btns);
         }
 
-        private void SetButtonState(bool isEnabled)
+        private void SetButtonState(bool speak, bool stop, bool read)
         {
-            SpeakBtn.Enabled = isEnabled;
-            StopBtn.Enabled = isEnabled;
-            ReadBtn.Enabled = isEnabled;
+            SpeakBtn.Enabled = speak;
+            StopBtn.Enabled = stop;
+            ReadBtn.Enabled = read;
         }
 
         private async void ReadBtn_Click(object sender, EventArgs e)
         {
-            SetButtonState(false);
+            SetButtonState(false, false, false);
             String BoxText = MessageBox.Text.Replace("\r\n", "").Trim();
             Speaker speak = new Speaker();
             if (!string.IsNullOrEmpty(BoxText) && !string.IsNullOrWhiteSpace(BoxText))
@@ -48,16 +48,18 @@ namespace Voice_To_Text
             {
                 DialogResult result = ErrorMessage("Please Enter Text", "No Input!", MessageBoxButtons.OK);
             }
-            SetButtonState(true);
+            SetButtonState(true, true, true);
         }
 
         private void StopBtn_Click(object sender, EventArgs e)
         {
             recognizer.RecognizeAsyncCancel();
+            SetButtonState(true, true, true);
         }
 
         private void SpeakBtn_Click_1(object sender, EventArgs e)
         {
+            SetButtonState(false, true, false);
             MessageBox.Text = "";
             recognizer.RecognizeAsync(RecognizeMode.Multiple);
         }
