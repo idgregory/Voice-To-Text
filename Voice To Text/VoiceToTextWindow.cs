@@ -28,8 +28,16 @@ namespace Voice_To_Text
             return System.Windows.Forms.MessageBox.Show(msg, caption, btns);
         }
 
+        private void SetButtonState(bool isEnabled)
+        {
+            SpeakBtn.Enabled = isEnabled;
+            StopBtn.Enabled = isEnabled;
+            ReadBtn.Enabled = isEnabled;
+        }
+
         private async void ReadBtn_Click(object sender, EventArgs e)
         {
+            SetButtonState(false);
             String BoxText = MessageBox.Text.Replace("\r\n", "").Trim();
             Speaker speak = new Speaker();
             if (!string.IsNullOrEmpty(BoxText) && !string.IsNullOrWhiteSpace(BoxText))
@@ -40,6 +48,7 @@ namespace Voice_To_Text
             {
                 DialogResult result = ErrorMessage("Please Enter Text", "No Input!", MessageBoxButtons.OK);
             }
+            SetButtonState(true);
         }
 
         private void StopBtn_Click(object sender, EventArgs e)
@@ -56,5 +65,6 @@ namespace Voice_To_Text
         {
             MessageBox.Text += e.Result.Text;
         }
+
     }
 }

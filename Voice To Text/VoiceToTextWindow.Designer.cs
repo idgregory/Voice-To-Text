@@ -43,16 +43,15 @@ namespace Voice_To_Text
             // 
             this.MessageBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.SetColumnSpan(this.MessageBox, 2);
-            this.MessageBox.Location = new System.Drawing.Point(3, 3);
+            this.MessageBox.Location = new System.Drawing.Point(9, 3);
             this.MessageBox.Multiline = true;
             this.MessageBox.Name = "MessageBox";
             this.MessageBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.MessageBox.Size = new System.Drawing.Size(969, 471);
+            this.MessageBox.Size = new System.Drawing.Size(969, 478);
             this.MessageBox.TabIndex = 0;
             // 
             // SpeakBtn
             // 
-            this.SpeakBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SpeakBtn.Location = new System.Drawing.Point(3, 3);
             this.SpeakBtn.Name = "SpeakBtn";
             this.SpeakBtn.Size = new System.Drawing.Size(75, 23);
@@ -63,7 +62,7 @@ namespace Voice_To_Text
             // 
             // ReadBtn
             // 
-            this.ReadBtn.Location = new System.Drawing.Point(490, 480);
+            this.ReadBtn.Location = new System.Drawing.Point(496, 487);
             this.ReadBtn.Name = "ReadBtn";
             this.ReadBtn.Size = new System.Drawing.Size(75, 23);
             this.ReadBtn.TabIndex = 2;
@@ -73,7 +72,9 @@ namespace Voice_To_Text
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -81,19 +82,21 @@ namespace Voice_To_Text
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.ReadBtn, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.MessageBox, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.07706F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.922935F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(975, 519);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(987, 526);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.SpeakBtn);
             this.flowLayoutPanel1.Controls.Add(this.StopBtn);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 480);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(165, 487);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(162, 29);
             this.flowLayoutPanel1.TabIndex = 2;
