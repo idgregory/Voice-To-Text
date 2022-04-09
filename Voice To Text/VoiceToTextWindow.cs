@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Voice_To_Text.Speech;
 using System.Speech.Recognition;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Voice_To_Text
 {
@@ -17,10 +19,27 @@ namespace Voice_To_Text
         private SpeechRecognitionEngine recognizer = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US"));
         public VoiceToTextWindow()
         {
-            InitializeComponent();
             recognizer.LoadGrammar(new DictationGrammar());
             recognizer.SetInputToDefaultAudioDevice();
+            //LoadGrammars();
             recognizer.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(recognizer_SpeechRecognized);
+            InitializeComponent();
+        }
+
+        private void LoadGrammars()
+        {
+            string dir = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\words.txt";
+            List<string> WordList = new List<string>();
+            using (StreamReader r = new StreamReader(dir))
+            {
+                string line = r.ReadLine().Replace("\r\n", "").Trim();
+                if (!string.IsNullOrEmpty(line) && !string.IsNullOrWhiteSpace(line))
+                {
+                    WordList.Add(line);
+                }
+                
+            }
+
         }
 
         private DialogResult ErrorMessage(string msg, string caption, MessageBoxButtons btns)
